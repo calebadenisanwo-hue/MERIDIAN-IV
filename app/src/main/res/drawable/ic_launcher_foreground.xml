@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:scaleX="0.61"
+        android:scaleY="0.61"
+        android:translateX="21"
+        android:translateY="21">
+        <!-- Outer Meridian Orbit Ring -->
+        <path
+            android:fillColor="#00000000"
+            android:strokeColor="#78DC77"
+            android:strokeWidth="5"
+            android:pathData="M54,14 A40,40 0 1,1 53.99,14" />
+        <!-- Inner Core Diamond Axis -->
+        <path
+            android:fillColor="#A9F5A4"
+            android:pathData="M54,26 L66,54 L54,82 L42,54 Z" />
+        <!-- Horizontal Equator Axis -->
+        <path
+            android:fillColor="#00000000"
+            android:strokeColor="#C8FFBF"
+            android:strokeWidth="3.5"
+            android:pathData="M24,54 L84,54" />
+        <!-- Center Orb -->
+        <path
+            android:fillColor="#121411"
+            android:pathData="M54,48 A6,6 0 1,1 53.99,48" />
+    </group>
+</vector>

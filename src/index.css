@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--md-sys-color-surface, #111412);
+    color: var(--md-sys-color-on-surface, #e1e3df);
+    min-height: 100vh;
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior-y: contain;
+    touch-action: manipulation;
+  }
+
+  /* Safe Area insets */
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .safe-nav-bottom {
+    padding-bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .safe-main-bottom {
+    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  .font-mono, .num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   MATERIAL DESIGN 3 (MATERIAL YOU) OFFICIAL COMPONENT SPECIFICATIONS
+   Reference: https://m3.material.io/components
+   ══════════════════════════════════════════════════════════════════════ */
+
+.m3-surface {
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+}
+
+.m3-surface-low {
+  background-color: var(--md-sys-color-surface-container-low);
+  color: var(--md-sys-color-on-surface);
+}
+
+.m3-surface-card {
+  background-color: var(--md-sys-color-surface-container);
+  color: var(--md-sys-color-on-surface);
+  border-radius: 16px; /* M3 shape medium (16dp) */
+  transition: transform 0.12s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.12s cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* M3 Card: Elevated (Surface Container Low + Level 1 Elevation, no border) */
+.m3-card-elevated {
+  background-color: var(--md-sys-color-surface-container-low);
+  color: var(--md-sys-color-on-surface);
+  border-radius: 16px;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.30);
+}
+
+/* M3 Card: Filled (Surface Container Highest, no border, no shadow) */
+.m3-card-filled {
+  background-color: var(--md-sys-color-surface-container-highest);
+  color: var(--md-sys-color-on-surface);
+  border-radius: 16px;
+}
+
+/* M3 Card: Outlined (Surface + Outline Variant 1dp border, no shadow) */
+.m3-card-outlined {
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  border-radius: 16px;
+  border: 1px solid var(--md-sys-color-outline-variant);
+}
+
+/* M3 Floating Action Button (FAB) - 56dp height, 16dp corner radius squircle, Level 3 Elevation */
+.m3-fab {
+  height: 56px;
+  border-radius: 16px;
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  box-shadow: 0 4px 8px 3px rgba(0, 0, 0, 0.15), 0 1px 3px 0 rgba(0, 0, 0, 0.30);
+  transition: box-shadow 0.15s cubic-bezier(0.2, 0, 0, 1), transform 0.15s cubic-bezier(0.2, 0, 0, 1);
+}
+.m3-fab:hover {
+  box-shadow: 0 6px 10px 4px rgba(0, 0, 0, 0.15), 0 2px 3px 0 rgba(0, 0, 0, 0.30);
+}
+
+/* M3 Chips - 32dp height, 8dp corner radius (never pill!) */
+.m3-chip {
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface-variant);
+  background-color: transparent;
+  transition: background-color 0.12s ease, color 0.12s ease;
+}
+.m3-chip-selected {
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  border-color: transparent;
+}
+
+/* Material 3 Standard Interactive States (Ripple, Press) */
+.m3-pressable {
+  transition: transform 0.1s cubic-bezier(0.2, 0, 0, 1), opacity 0.1s ease;
+  user-select: none;
+}
+.m3-pressable:active {
+  transform: scale(0.97);
+}
+
+/* Material 3 Navigation Bar Active Pill - 64x32dp (or 56x32dp) pill shape (radius 16px) */
+.m3-nav-indicator {
+  width: 64px;
+  height: 32px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s cubic-bezier(0.2, 0, 0, 1), transform 0.15s cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Material 3 Navigation Drawer Item - 56dp height, full-radius pill */
+.m3-drawer-item {
+  height: 56px;
+  border-radius: 28px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.15s cubic-bezier(0.2, 0, 0, 1), color 0.15s cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Snappy View Transition */
+.m3-fade-enter {
+  animation: m3FadeIn 0.12s cubic-bezier(0.05, 0.7, 0.1, 1.0) forwards;
+}
+
+@keyframes m3FadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom Scrollbars in Material 3 Style */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--md-sys-color-outline-variant, #404943);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--md-sys-color-outline, #8a938c);
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   MATERIAL 3 SKELETON LOADER (Shimmer & Pulsing Tonal Shapes)
+   ══════════════════════════════════════════════════════════════════════ */
+@keyframes m3Shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.m3-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--md-sys-color-surface-container, rgba(255, 255, 255, 0.04)) 0%,
+    var(--md-sys-color-surface-container-highest, rgba(255, 255, 255, 0.12)) 50%,
+    var(--md-sys-color-surface-container, rgba(255, 255, 255, 0.04)) 100%
+  );
+  background-size: 200% 100%;
+  animation: m3Shimmer 1.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

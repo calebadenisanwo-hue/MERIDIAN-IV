@@ -1,0 +1,6 @@
+{
+  "name": "Meridian Personal Systems",
+  "description": "Unified Material 3 Personal Operating System featuring clean-slate data architecture, adaptive Monet dynamic theming, cross-module correlations, and offline-first data synchronization.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
